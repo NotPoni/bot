@@ -1,12 +1,19 @@
 # --== bot.py (Объединённый бот со всеми функциями) ==--
 import os
+import sys
+import subprocess
+
+# Принудительная установка библиотек при запуске
+try:
+    import cloudscraper
+except ImportError:
+    print("⏳ Установка cloudscraper...")
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "cloudscraper"])
+    print("✅ cloudscraper установлен!")
+
 import asyncio
 import logging
-import json
-import sqlite3
-from datetime import datetime, timedelta
-import re
-from dotenv import load_dotenv
+# ... дальше идет ваш обычный код (import sqlite3, discord и т.д.)
 
 # Загружаем .env с игнорированием ошибок синтаксиса
 try:
